@@ -28,8 +28,8 @@ class CatalogController {
     // instancie un objet à partir de la classe Category ...
     $categoryModel = new Category();
     // Pour utiliser la methode findAll, qui va nous renvoyer tous les resultats
-    //$allCategories = $categoryModel->findAll();
-    //dump($allCategories);
+    $allCategories = $categoryModel->findAll();
+    //dump($allCategories);die();
     $oneCategory = $categoryModel->find($params['id']);
     //dump($oneCategory);
   

@@ -18,12 +18,13 @@ class Category{
   //  de la table category
   public function findAll()
   {
+    // instancier un nouvel objet à partir de la classe PDO
+    $pdo = Database::getPDO();
     // j'ecris la requete 
+
     $sql = '
       SELECT * FROM `category`
     ';
-    // instancier un nouvel objet à partir de la classe PDO
-    $pdo = Database::getPDO();
     // j'execute ma requete grace à query (car j'ai fais un SELECT)
     $pdoStatement = $pdo->query($sql);
     // je récupère des résultats dans $pdoStatement MAIS pour pouvoir exploiter ces résultats je dois

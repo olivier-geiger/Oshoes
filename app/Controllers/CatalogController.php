@@ -1,22 +1,6 @@
 <?php
 
-class CatalogController {
-
-  function show($viewName, $viewData = [])
-  {
-    $viewData['curentPage'] = $viewName;
-    // la superglobale $_SERVER donne un tableau associatif avec de nombreuses informations
-    // l'entée "BASE_URI" permet d'avoir le chemin en absolu de la racine de mon projet
-    // (on peut concat avec le dossier que l'on souhaite (ici assets)
-   // on pourra donc l'appeler dans toute nos vues sans que cela dépende de là ou on se place.
-    $assetsFolder = $_SERVER['BASE_URI'] . '/assets';
-    $baseUri = $_SERVER['BASE_URI'] . '/';
-    //  var_dump($assetsFolder);die();
-    require __DIR__ . '/../views/header.tpl.php';
-    require __DIR__ . '/../views/' . $viewName . '.tpl.php';
-    require __DIR__ . '/../views/footer.tpl.php';
-  }
-    
+class CatalogController extends CoreController{
   
   // ici la methode category va recevoir $match['params']
   // qui contient un tableau associatif avec une seule entrée : 
@@ -28,7 +12,7 @@ class CatalogController {
     // instancie un objet à partir de la classe Category ...
     $categoryModel = new Category();
     // Pour utiliser la methode findAll, qui va nous renvoyer tous les resultats
-    $allCategories = $categoryModel->findAll();
+    //$allCategories = $categoryModel->findAll();
     //dump($allCategories);die();
     $oneCategory = $categoryModel->find($params['id']);
     //dump($oneCategory);
@@ -64,8 +48,17 @@ class CatalogController {
 
   function brand($params)
   {
+
+    // je vais faire appel a mon Model !
+    // Pour chercher par exemple le nom de la marque numero $params['id']
+
+    $brandModel = new Brand();
+    $brand = $brandModel->find($params['id']); 
+
+
     $viewData = [
-      'brandId' => $params['id']
+      'brandId' => $params['id'],
+      'brand' => $brand
     ];
     $this->show('brand', $viewData);
   }

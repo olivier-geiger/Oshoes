@@ -32,7 +32,19 @@ class Type {
     return $result;
   }
 
-
+  public function findFooterFive(){
+    $pdo = Database::getPDO();
+    $sql = '
+      SELECT * 
+      FROM `type`
+      WHERE `footer_order` > 0
+      ORDER BY `footer_order`
+      LIMIT 5
+    ';
+    $pdoStatement = $pdo->query($sql);
+    $results = $pdoStatement->fetchAll(PDO::FETCH_CLASS, 'Type');
+    return $results;
+  }
 
 
 

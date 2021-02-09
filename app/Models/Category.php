@@ -1,17 +1,15 @@
 <?php
 
-class Category{
+class Category extends CoreModel{
   // On va représenter toute nos colonnes 
   // sous la forme de propriétés 
   //! ATTENTION LES PROPRIETES DOIVENT AVOIR LE MEME NOM
   //! QUE LES COLONNES !
-  private $id;
   private $name;
   private $subtitle;
   private $picture;
   private $home_order;
-  private $created_at;
-  private $updated_at;
+
 
 
   // Methode qui va nous permettre de récuperer toute les entrées
@@ -56,13 +54,6 @@ class Category{
 
 
 
-  /**
-   * Get the value of id
-   */ 
-  public function getId()
-  {
-    return $this->id;
-  }
 
   /**
    * Get the value of name
@@ -144,43 +135,9 @@ class Category{
     return $this;
   }
 
-  /**
-   * Get the value of created_at
-   */ 
-  public function getCreateAt()
-  {
-    return $this->created_at;
-  }
+ 
 
-  /**
-   * Set the value of created_at
-   *
-   * @return  self
-   */ 
-  public function setCreatedAt($created_at)
-  {
-    $this->created_at = $created_at;
 
-    return $this;
-  }
 
-  /**
-   * Get the value of updated_at
-   */ 
-  public function getUpdatedAt()
-  {
-    return $this->updated_at;
-  }
 
-  /**
-   * Set the value of updated_at
-   *
-   * @return  self
-   */ 
-  public function setUpdatedAt($updated_at)
-  {
-    $this->updated_at = $updated_at;
-
-    return $this;
-  }
 }

@@ -1,14 +1,11 @@
 <?php
 
 
-class Brand {
-  private $id;
+class Brand extends CoreModel {
+ 
   private $name;
   private $footer_order;
-  private $created_at;
-  private $updated_at;
   
-
   public function findAll(){
     $pdo = Database::getPDO();
     $sql = '
@@ -49,13 +46,7 @@ class Brand {
 
 
 
-  /**
-   * Get the value of id
-   */ 
-  public function getId()
-  {
-    return $this->id;
-  }
+
 
   /**
    * Get the value of name
@@ -97,31 +88,7 @@ class Brand {
     return $this;
   }
 
-  /**
-   * Get the value of updated_at
-   */ 
-  public function getUpdatedAt()
-  {
-    return $this->updated_at;
-  }
+ 
 
-  /**
-   * Set the value of updated_at
-   *
-   * @return  self
-   */ 
-  public function setUpdatedAt($updated_at)
-  {
-    $this->updated_at = $updated_at;
 
-    return $this;
-  }
-
-  /**
-   * Get the value of created_at
-   */ 
-  public function getCreatedAt()
-  {
-    return $this->created_at;
-  }
 }
